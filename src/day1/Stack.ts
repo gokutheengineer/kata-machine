@@ -1,7 +1,7 @@
 // stack node
 class Node<T> {
     public value: T;
-    public next: Node<T> | undefined;
+    public prev: Node<T> | undefined;
 }
 
 export default class Stack<T> {
@@ -25,11 +25,10 @@ export default class Stack<T> {
             return;
         }
 
-        node.next = this.top;
+        node.prev = this.top;
         this.top = node;
+    }
 
-
-}
     pop(): T | undefined {
         if (!this.top) {
             return undefined;
@@ -38,15 +37,16 @@ export default class Stack<T> {
         this.length--;
         
         const value = this.top.value;
-        this.top = this.top.next;
+        this.top = this.top.prev;
 
         return value;  
 
-}
+    }
+
     peek(): T | undefined {
         if (this.top === undefined) {
             return undefined;
         }
         return this.top.value;
-}
+    }
 }
