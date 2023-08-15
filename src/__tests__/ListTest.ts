@@ -18,9 +18,6 @@ export function test_list(list: List<number>): void {
     list.prepend(7);
     list.prepend(9);
 
-
-    console.log("length: ", list.length);
-
     expect(list.get(2)).toEqual(5);
     expect(list.get(0)).toEqual(9);
     expect(list.remove(9)).toEqual(9);
