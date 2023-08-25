@@ -44,7 +44,7 @@ export default class Queue<T> {
         const value = this.head.value;
         this.head = this.head.next;
 
-        // i flis tas no remaining items, set the tail to undefined
+        // if list has no remaining items, set the tail to undefined
         if (this.head === undefined) {
             this.tail = undefined;
         }
