@@ -1,6 +1,8 @@
-export default class MinHeap {
+// make MinHeap Generic
+
+export default class MinHeap<T> {
     public length: number;
-    private data: number[];
+    private data: T[];
     
 
     constructor() {
@@ -8,15 +10,15 @@ export default class MinHeap {
         this.data = [];
     }
 
-    insert(value: number): void {
+    insert(value: T): void {
         this.data[this.length] = value;
         this.heapifyUp(this.length);
         this.length++;
     }
 
-    delete(): number {
+    delete(): T | undefined{
         if (this.length === 0) {
-            return -1;
+            return undefined;
         }
 
         this.length--;
@@ -52,7 +54,7 @@ export default class MinHeap {
         const left_idx = this.leftChild(idx);
         const right_idx = this.rightChild(idx);
 
-        // check left child because  heap is filled from left to right
+        // check left child because the heap is filled from left to right
         if (left_idx >= this.length) {
             return
         }

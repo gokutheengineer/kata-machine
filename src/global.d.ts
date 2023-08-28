@@ -42,3 +42,8 @@ declare interface ILRU<K, V> {
     update(key: K, value: V): void;
     get(key: K): V | undefined;
 }
+
+declare type HeapNode = {
+    vertex: number,
+    dist: number
+}
